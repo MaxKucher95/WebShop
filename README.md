@@ -7,5 +7,7 @@ Ports:
   * CompUserRole: 8102
   * UserCore: 8101
   * RoleCore: 8100
+  * CompCategoryProduct: 8202
+  * ProductCore: 8201
   * CategoryCore: 8200
   * HystrixTurbine: 8099

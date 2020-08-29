@@ -26,7 +26,12 @@ public class UrlBuilder {
         LoadBalancerClient loadBalancer = BeanUtil.getBean(LoadBalancerClient.class);
         ServiceInstance si_core_product = loadBalancer.choose("core_product");
         ServiceInstance si_core_category = loadBalancer.choose("core_category");
-        this.baseUrl_core_product =  si_core_product.getUri().toString();
-        this.baseUrl_core_category = si_core_category.getUri().toString();
+        try{
+          this.baseUrl_core_product =  si_core_product.getUri().toString();
+          this.baseUrl_core_category = si_core_category.getUri().toString();
+        }catch(NullPointerException np_ex){
+          this.baseUrl_core_product = "http://core_product:8201";
+          this.baseUrl_core_category = "http://core_category:8200";
+      }    
     }
 }

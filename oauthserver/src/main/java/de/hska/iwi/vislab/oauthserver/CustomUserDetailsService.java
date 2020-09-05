@@ -28,6 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
+            log.info("DEBUG: Try loading username " + username);
             de.hska.iwi.vislab.oauthserver.REST.User user =  rest.getUser(username);
             String role = "USER";
             if (user.getRoleId() == 0) {

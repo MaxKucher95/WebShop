@@ -1,26 +1,41 @@
-spring:
-  application:
-    name: zuul
-  cloud:
-    config:
-      enabled: false
-server:
-  port: 8084
-eureka:
-    client:
-        serviceUrl:
-            #defaultZone: http://Eureka:8761/eureka/
-            defaultZone: http://localhost:8761/eureka/
-        instance:
-            preferIpAdress: true
-            leaseRenewalIntervallInSeconds: 5
-            metadataMap:
-                instanceId: "${spring.application.name}:${random.value}"
+# Legt die routes fest /product wird auf den service product gemapped
 zuul:
-  ignoredServices: '*'
+  ignoredServices: '*' # ignoriert alle anderen Services (Zuul könnte diese automatisch hinzufügen)
+  sensitiveHeaders: Cookie,Set-Cookie
   routes:
-    catalogue: /catalogue/**
-    category: /category/**
-    product: /product/**
-    products: /products/**
-    users: /users/**
+    oauthserver:
+      path: /oauth/**
+      #url: http://localhost:8300
+      serviceId: oauthserver
+      stripPrefix: false
+    product: 
+      path: /product/** # Zugriffspfad http://localhost:8092/product
+      #url: http://localhost:8203
+      serviceId: api_product # Name des Services der bei Eureka registriert ist
+      stripPrefix: false
+    category:
+      path: /category/**
+      #url: http://localhost:8204
+      serviceId: api_category
+      stripPrefix: false
+    role:
+      path: /role/**
+      #url: http://localhost:8104
+      serviceId: api_role
+      stripPrefix: false
+    user:
+      path: /user/**
+      #url: http://localhost:8103
+      serviceId: api_user
+      stripPrefix: false
+    compproductcategory:
+      path: /comp_product_category/**
+      #url: http://localhost:8202
+      serviceId: comp_category_product
+      stripPrefix: false
+    compuserrole:
+      path: /comp_user_role/**
+      #url: http://localhost:8102
+      serviceId: comp_user_role
+      stripPrefix: false
+

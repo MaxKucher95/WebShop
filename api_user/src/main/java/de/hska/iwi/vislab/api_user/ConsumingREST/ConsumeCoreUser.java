@@ -46,7 +46,7 @@ public class ConsumeCoreUser {
         
         details.setClientId("apiUserId");
         details.setClientSecret("apiUserSecret");
-        details.setAccessTokenUri("http://oauthserver:8094/oauth/token");
+        details.setAccessTokenUri("http://localhost:8300/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");

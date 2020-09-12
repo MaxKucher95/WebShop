@@ -31,7 +31,7 @@ zuul:
     compproductcategory:
       path: /comp_product_category/**
       #url: http://localhost:8202
-      serviceId: comp_category_product
+      serviceId: comp_product_category
       stripPrefix: false
     compuserrole:
       path: /comp_user_role/**

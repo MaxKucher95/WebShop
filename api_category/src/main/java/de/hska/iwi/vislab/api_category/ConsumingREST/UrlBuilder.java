@@ -18,13 +18,13 @@ public class UrlBuilder {
     String getCategoryUrl(){return getBaseUrl_core_category() + "/category";}
     String getCategoryUrl_withId(int id){return getCategoryUrl() + "/"+id;}
 
-    String getCompositeServiceUrl(){return getBaseUrl_comp_product_category() + "/comp_category_product/category";}
+    String getCompositeServiceUrl(){return getBaseUrl_comp_product_category() + "/comp_product_category/category";}
     String getCompositeServiceUrl_withId(int id){return getCompositeServiceUrl() + "/"+id;}
 
     public UrlBuilder(){
         LoadBalancerClient loadBalancer = BeanUtil.getBean(LoadBalancerClient.class);
         ServiceInstance si_core_category = loadBalancer.choose("core_category");
-        ServiceInstance si_comp_product_category = loadBalancer.choose("comp_category_product");
+        ServiceInstance si_comp_product_category = loadBalancer.choose("comp_product_category");
         try{
             this.baseUrl_core_category =  si_core_category.getUri().toString();
             this.baseUrl_comp_product_category = si_comp_product_category.getUri().toString();

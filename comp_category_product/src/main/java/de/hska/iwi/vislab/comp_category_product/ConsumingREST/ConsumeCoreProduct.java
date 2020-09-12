@@ -26,7 +26,7 @@ public class ConsumeCoreProduct {
 
     details.setClientId("coreProductId");
     details.setClientSecret("coreProductSecret");
-    details.setAccessTokenUri("http://oauthserver:8094/oauth/token");
+    details.setAccessTokenUri("http://localhost:8300/oauth/token");
     // details.setGrantType("client_credentials");
     List<String> scope = new ArrayList<>();
     scope.add("read");

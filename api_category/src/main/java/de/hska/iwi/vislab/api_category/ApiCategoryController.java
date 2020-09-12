@@ -12,12 +12,16 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @EnableCircuitBreaker
 public class ApiCategoryController {
     private final Map<Integer, Category> categoryCache = new LinkedHashMap<Integer, Category>();
     @Autowired
     private ApiCategoryService apiCategoryService;
+    private static final Logger log = LoggerFactory.getLogger(ApiCategoryController.class);
 
     @PostMapping(path = "/category", consumes = "application/json")
     @HystrixCommand(fallbackMethod = "addCategoryFallback", commandProperties = {
@@ -37,6 +41,7 @@ public class ApiCategoryController {
     @HystrixCommand(fallbackMethod = "deleteCategoryFallback", commandProperties = {
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2") })
     public void deleteCategory(@PathVariable int id) {
+        log.info("try to delete category...");
         apiCategoryService.deleteCategory(id);
     }
 

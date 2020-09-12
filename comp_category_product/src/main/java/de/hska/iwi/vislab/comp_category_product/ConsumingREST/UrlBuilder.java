@@ -30,8 +30,8 @@ public class UrlBuilder {
           this.baseUrl_core_product =  si_core_product.getUri().toString();
           this.baseUrl_core_category = si_core_category.getUri().toString();
         }catch(NullPointerException np_ex){
-          this.baseUrl_core_product = "http://core_product:8201";
-          this.baseUrl_core_category = "http://core_category:8200";
+          this.baseUrl_core_product = "http://localhost:8201";
+          this.baseUrl_core_category = "http://localhost:8200";
       }    
     }
 }

@@ -28,8 +28,8 @@ public class UrlBuilder {
           this.baseUrl_core_user =  si_core_user.getUri().toString();
           this.baseUrl_core_role = si_core_role.getUri().toString();
         }catch(NullPointerException np_ex){
-          this.baseUrl_core_user = "http://core_user:8101";
-          this.baseUrl_core_role = "http://core_Role:8100";
+          this.baseUrl_core_user = "http://localhost:8101";
+          this.baseUrl_core_role = "http://localhost:8100";
         }
     }
 

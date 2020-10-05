@@ -30,7 +30,7 @@ public class ConsumeCoreRole {
 
         details.setClientId("coreRoleId");
         details.setClientSecret("coreRoleSecret");
-        details.setAccessTokenUri("http://localhost:8300/oauth/token");
+        details.setAccessTokenUri("http://oauthserver:8300/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");

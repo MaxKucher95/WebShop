@@ -27,8 +27,8 @@ public class UrlBuilder {
             this.baseUrl_core_user = si_core_user.getUri().toString();
             this.baseUrl_comp_user_role = si_comp_user_role.getUri().toString();
         }catch(NullPointerException np_ex){
-            this.baseUrl_core_user = "http://localhost:8101";// Schreibweise siehe Docker-Compose
-            this.baseUrl_comp_user_role = "http://localhost:8102"; // Schreibweise siehe Docker-Compose
+            this.baseUrl_core_user = "http://coreuser:8101";// Schreibweise siehe Docker-Compose
+            this.baseUrl_comp_user_role = "http://compuserrole:8102"; // Schreibweise siehe Docker-Compose
         }
 
     }

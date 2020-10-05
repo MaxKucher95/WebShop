@@ -14,7 +14,7 @@ public class UrlBuilder {
         try{
             this.baseUrl =  si.getUri().toString();
         }catch(NullPointerException np_ex){
-            this.baseUrl = "http://localhost:8100";// Schreibweise siehe Docker-Compose
+            this.baseUrl = "http://corerole:8100";// Schreibweise siehe Docker-Compose
         }
     }
 

@@ -26,8 +26,8 @@ public class UrlBuilder {
             this.baseUrl_core_product = si_core_product.getUri().toString();
             this.baseUrl_comp_product_category = si_comp_product_category.getUri().toString();
         }catch(NullPointerException NP_ex){
-            this.baseUrl_core_product = "http://localhost:8201";// Schreibweise siehe Docker-Compose
-            this.baseUrl_comp_product_category = "http://localhost:8202";// Schreibweise siehe Docker-Compose
+            this.baseUrl_core_product = "http://coreproduct:8201";// Schreibweise siehe Docker-Compose
+            this.baseUrl_comp_product_category = "http://compproductcategory:8202";// Schreibweise siehe Docker-Compose
         }
     }
 

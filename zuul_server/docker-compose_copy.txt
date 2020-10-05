@@ -1,0 +1,25 @@
+version: "2.4"
+
+services:
+  eureka:
+    build: ../eureka_server
+    ports:
+      - 8761:8761
+    environment:
+      - JVM_OPTS=
+        -DEUREKA_SERVER=http://localhost:8761/eureka
+    mem_limit: 800m
+    mem_reservation: 600m
+  zuul:
+    build: .
+    ports:
+      - 8084:8084
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://eureka:8761/eureka
+    links:
+      - eureka
+    depends_on:
+      - eureka
+    mem_limit: 800m
+    mem_reservation: 600m

@@ -18,7 +18,7 @@ import java.util.List;
 public class ConsumeApiCategory {
 
     private static final Logger log = LoggerFactory.getLogger(ConsumeApiCategory.class);
-    private String urlApiCategory = "http://localhost:8084/category";
+    private String urlApiCategory = "http://zuul:8084/category";
     
     RestTemplate restTemplate = new RestTemplate();
 
@@ -29,7 +29,7 @@ public class ConsumeApiCategory {
 
         details.setClientId("apiCategoryId");
         details.setClientSecret("apiCategorySecret");
-        details.setAccessTokenUri("http://localhost:8084/oauth/token");
+        details.setAccessTokenUri("http://zuul:8084/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");

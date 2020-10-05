@@ -22,7 +22,7 @@ public class ConsumeApiProduct {
 
     private static final Logger log = LoggerFactory.getLogger(ConsumeApiProduct.class);
 
-    private String urlApiProduct = "http://localhost:8084/product";
+    private String urlApiProduct = "http://zuul:8084/product";
     
     RestTemplate restTemplate = new RestTemplate();
 
@@ -33,7 +33,7 @@ public class ConsumeApiProduct {
 
         details.setClientId("apiProductId");
         details.setClientSecret("apiProductSecret");
-        details.setAccessTokenUri("http://localhost:8084/oauth/token");
+        details.setAccessTokenUri("http://zuul:8084/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");

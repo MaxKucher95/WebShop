@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ConsumeApiUser {
 
-    private String urlApiUser = "http://localhost:8084/user";
+    private String urlApiUser = "http://zuul:8084/user";
     
     RestTemplate restTemplate = new RestTemplate();
 
@@ -26,7 +26,7 @@ public class ConsumeApiUser {
 
         details.setClientId("apiUserId");
         details.setClientSecret("apiUserSecret");
-        details.setAccessTokenUri("http://localhost:8084/oauth/token");
+        details.setAccessTokenUri("http://zuul:8084/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");

@@ -41,7 +41,7 @@ public class ConsumeCoreUser {
         
         details.setClientId("oauthId");
         details.setClientSecret("oauthSecret");
-        details.setAccessTokenUri("http://localhost:8300/oauth/token");
+        details.setAccessTokenUri("http://oauthserver:8300/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");
@@ -63,7 +63,7 @@ public class ConsumeCoreUser {
     public User getUser(String input) {
         try {
             OAuth2RestTemplate restTemplate3 = foo();
-            User user = restTemplate3.getForObject("http://localhost:8101/user/" + input, User.class);
+            User user = restTemplate3.getForObject("http://coreuser:8101/user/" + input, User.class);
             log.info("GET User: " + user.getUsername());
             return user;
         } catch (Exception e) {

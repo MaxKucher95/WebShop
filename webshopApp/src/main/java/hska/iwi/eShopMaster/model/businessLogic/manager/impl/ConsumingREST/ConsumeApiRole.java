@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ConsumeApiRole {
     
-    private String urlApiRole = "http://localhost:8084/role";
+    private String urlApiRole = "http://zuul:8084/role";
     
     RestTemplate restTemplate = new RestTemplate();
 
@@ -27,7 +27,7 @@ public class ConsumeApiRole {
 
         details.setClientId("apiRoleId");
         details.setClientSecret("apiRoleSecret");
-        details.setAccessTokenUri("http://localhost:8084/oauth/token");
+        details.setAccessTokenUri("http://zuul:8084/oauth/token");
         //details.setGrantType("client_credentials");
         List<String> scope = new ArrayList<>();
         scope.add("read");scope.add("write");
